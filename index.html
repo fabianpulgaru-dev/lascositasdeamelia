@@ -1453,6 +1453,290 @@ textarea{
   .status-column{margin-bottom:12px}
 }
 
+
+/* ══════════════════════════════════════════════════════════════
+   DASH PRINCIPAL + CANTIDADES + ACCESIBILIDAD MÓVIL
+   ══════════════════════════════════════════════════════════════ */
+.decision-dashboard{
+  display:grid;
+  grid-template-columns:minmax(260px,.72fr) minmax(0,1.28fr);
+  gap:20px;
+  align-items:stretch;
+  margin:4px 0 24px;
+  padding:22px;
+  background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(255,248,244,.84));
+  border:1px solid var(--line);
+  border-radius:30px;
+  box-shadow:0 14px 36px rgba(70,53,65,.05);
+}
+.decision-copy{
+  padding:8px 8px 8px 4px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+.decision-kicker{
+  color:var(--berry);
+  font-size:.76rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+}
+.decision-copy h2{
+  font-family:var(--display);
+  font-size:clamp(2.3rem,4.4vw,4.3rem);
+  line-height:.9;
+  letter-spacing:-.055em;
+  margin:0;
+}
+.decision-copy p{
+  color:var(--muted);
+  line-height:1.5;
+  margin:15px 0 0;
+  max-width:440px;
+}
+.decision-actions{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+}
+.decision-card{
+  border:1px solid var(--line);
+  border-radius:22px;
+  background:#fffdfa;
+  color:var(--ink);
+  min-height:132px;
+  padding:17px;
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:12px;
+  align-items:start;
+  text-align:left;
+  transition:.16s ease;
+}
+.decision-card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(65,48,60,.07)}
+.decision-card.active{
+  border-color:var(--ink);
+  box-shadow:0 0 0 2px rgba(41,35,49,.07);
+}
+.decision-card-main{
+  background:var(--ink);
+  color:white;
+  border-color:var(--ink);
+}
+.decision-card-main .decision-card-copy small,
+.decision-card-main .decision-card-copy span{color:#e8dfe9}
+.decision-icon{
+  width:38px;height:38px;border-radius:13px;
+  display:grid;place-items:center;
+  background:rgba(191,168,233,.22);
+  font-size:1.15rem;
+  font-weight:900;
+}
+.decision-card-main .decision-icon{background:var(--butter);color:var(--ink)}
+.decision-card-copy{min-width:0}
+.decision-card-copy small{
+  display:block;
+  color:var(--muted);
+  font-size:.7rem;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.055em;
+  margin-bottom:5px;
+}
+.decision-card-copy strong{
+  display:block;
+  font-family:var(--display);
+  font-size:1.18rem;
+  line-height:1.05;
+}
+.decision-card-copy span{
+  display:block;
+  color:var(--muted);
+  font-size:.78rem;
+  line-height:1.3;
+  margin-top:5px;
+}
+.decision-arrow{font-size:1.1rem;opacity:.62}
+
+.active-filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:7px;
+  min-height:0;
+  margin:0 0 4px;
+}
+.active-filter-chip{
+  border:1px solid var(--line);
+  background:#fff;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:.75rem;
+  font-weight:800;
+  color:var(--muted);
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+}
+.active-filter-chip button{
+  border:0;background:transparent;color:inherit;padding:0;
+  width:22px;height:22px;border-radius:50%;font-weight:900;
+}
+.active-filter-chip button:focus-visible{outline:3px solid var(--lilac);outline-offset:2px}
+
+.quantity-progress{
+  margin-top:14px;
+}
+.quantity-progress-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:baseline;
+  font-size:.78rem;
+  color:var(--muted);
+  font-weight:800;
+}
+.quantity-track{
+  height:8px;
+  border-radius:999px;
+  overflow:hidden;
+  display:flex;
+  background:#eee8e3;
+  margin-top:7px;
+}
+.quantity-owned{background:var(--mint)}
+.quantity-reserved{background:var(--lilac)}
+.quantity-missing{background:transparent}
+.quantity-legend{
+  display:flex;flex-wrap:wrap;gap:8px 12px;margin-top:8px;
+  font-size:.7rem;color:var(--muted);font-weight:800;
+}
+.quantity-legend span{display:inline-flex;align-items:center;gap:5px}
+.quantity-legend i{
+  width:8px;height:8px;border-radius:50%;display:inline-block;
+}
+.quantity-legend .l-owned i{background:var(--mint)}
+.quantity-legend .l-reserved i{background:var(--lilac)}
+.quantity-legend .l-missing i{background:#ded6cf}
+
+.reservation-list{
+  display:grid;
+  gap:6px;
+  margin-top:10px;
+}
+.reservation-row{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:center;
+  background:#F7F2FA;
+  border-radius:12px;
+  padding:8px 10px;
+  color:#695f69;
+  font-size:.78rem;
+}
+.reservation-row strong{color:var(--ink)}
+.reservation-row button{
+  border:0;
+  background:transparent;
+  color:#9a6674;
+  font-weight:900;
+  width:30px;height:30px;border-radius:9px;
+}
+.reservation-row button:hover{background:#fff}
+.quantity-hint{
+  margin-top:12px;
+  background:#F7F3EF;
+  border-radius:14px;
+  padding:10px 12px;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1.4;
+}
+
+.action-disabled,
+button:disabled{
+  opacity:.5 !important;
+  cursor:not-allowed !important;
+  transform:none !important;
+}
+
+.mobile-nav{display:none}
+
+:focus-visible{
+  outline:3px solid rgba(114,91,145,.45);
+  outline-offset:3px;
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{scroll-behavior:auto!important;transition:none!important;animation:none!important}
+}
+
+@media(max-width:900px){
+  .decision-dashboard{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  .decision-dashboard{
+    margin:2px 0 18px;
+    padding:16px;
+    border-radius:24px;
+  }
+  .decision-actions{
+    grid-template-columns:1fr;
+  }
+  .decision-card{
+    min-height:100px;
+    border-radius:18px;
+  }
+  .decision-copy h2{font-size:2.65rem}
+  .decision-copy p{font-size:.94rem}
+  .actions button,
+  .btn,
+  .filter-trigger,
+  .view-trigger,
+  .hero-card button{
+    min-height:44px;
+  }
+  input,select,textarea{font-size:16px}
+  .fab{display:none}
+  .shell{padding-bottom:98px}
+  .mobile-nav{
+    position:fixed;
+    left:10px;right:10px;bottom:10px;
+    z-index:50;
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:4px;
+    background:rgba(41,35,49,.96);
+    border:1px solid rgba(255,255,255,.09);
+    border-radius:22px;
+    padding:7px;
+    box-shadow:0 16px 45px rgba(31,25,34,.28);
+    backdrop-filter:blur(12px);
+  }
+  .mobile-nav button{
+    min-width:0;
+    min-height:53px;
+    border:0;
+    border-radius:15px;
+    background:transparent;
+    color:white;
+    display:grid;
+    place-items:center;
+    align-content:center;
+    gap:2px;
+    padding:5px 2px;
+  }
+  .mobile-nav button span{font-size:1.08rem;font-weight:900}
+  .mobile-nav button small{font-size:.62rem;font-weight:800}
+  .mobile-nav .mobile-nav-add{
+    background:var(--butter);
+    color:var(--ink);
+  }
+  .reservation-row{align-items:flex-start}
+  .quantity-progress-top{align-items:flex-start}
+}
+
 </style>
 </head>
 
@@ -1478,7 +1762,7 @@ textarea{
         sumar ideas de quienes nos quieren y saber qué ya está
         cubierto. Sin duplicados, sin enredos y con cariño.
       </p>
-      <div class="sync-note" id="syncNote">
+      <div class="sync-note" id="syncNote" role="status" aria-live="polite">
         <span class="sync-dot"></span>
         <span id="syncText">Conectando con la lista compartida…</span>
       </div>
@@ -1502,7 +1786,7 @@ textarea{
         o marcar que ya llegó a casa.
       </div>
 
-      <button onclick="openAdd()">
+      <button type="button" onclick="openAdd()">
         Agregar una sugerencia
       </button>
 
@@ -1510,6 +1794,60 @@ textarea{
 
   </section>
 
+
+
+  <section class="decision-dashboard" aria-labelledby="decisionTitle">
+    <div class="decision-copy">
+      <div class="decision-kicker">Una forma rápida de entrar</div>
+      <h2 id="decisionTitle">¿Qué quieres hacer?</h2>
+      <p>
+        Puedes revisar todo, ir directo a lo que todavía falta
+        o encontrar esas cosas para las que ya estamos a un pasito.
+      </p>
+    </div>
+
+    <div class="decision-actions">
+      <button class="decision-card decision-card-main" type="button" onclick="setSmartFilter('missing')" data-smart-card="missing">
+        <span class="decision-icon">◎</span>
+        <span class="decision-card-copy">
+          <small>Lo más útil ahora</small>
+          <strong>Ver lo que falta</strong>
+          <span id="dashMissingText">Revisar pendientes</span>
+        </span>
+        <span class="decision-arrow">→</span>
+      </button>
+
+      <button class="decision-card" type="button" onclick="setSmartFilter('almost')" data-smart-card="almost">
+        <span class="decision-icon">◔</span>
+        <span class="decision-card-copy">
+          <small>Casi llegamos</small>
+          <strong>Nos falta poquito</strong>
+          <span id="dashAlmostText">Ver artículos casi completos</span>
+        </span>
+        <span class="decision-arrow">→</span>
+      </button>
+
+      <button class="decision-card" type="button" onclick="setSmartFilter('all')" data-smart-card="all">
+        <span class="decision-icon">▦</span>
+        <span class="decision-card-copy">
+          <small>Panorama completo</small>
+          <strong>Ver todo</strong>
+          <span id="dashAllText">Toda la lista</span>
+        </span>
+        <span class="decision-arrow">→</span>
+      </button>
+
+      <button class="decision-card" type="button" onclick="openAdd()">
+        <span class="decision-icon">＋</span>
+        <span class="decision-card-copy">
+          <small>¿Se nos pasó algo?</small>
+          <strong>Sugerir algo</strong>
+          <span>Sumar una nueva idea</span>
+        </span>
+        <span class="decision-arrow">→</span>
+      </button>
+    </div>
+  </section>
 
   <section class="dashboard">
 
@@ -1583,9 +1921,10 @@ textarea{
 
     <button
       class="btn"
+      type="button"
       onclick="copySummary()"
     >
-      Copiar resumen
+      Compartir resumen
     </button>
 
   </section>
@@ -1599,6 +1938,7 @@ textarea{
         id="searchInput"
         oninput="render()"
         placeholder="Buscar pañales, ropa, cuna..."
+        aria-label="Buscar en la lista de Amelia"
       >
 
     </div>
@@ -1627,6 +1967,8 @@ textarea{
 
   </section>
 
+  <div class="active-filters" id="activeFilters" aria-live="polite"></div>
+
 
   <nav
     class="category-strip"
@@ -1644,6 +1986,7 @@ textarea{
 
 <button
   class="fab"
+  type="button"
   onclick="openAdd()"
 >
 
@@ -1682,7 +2025,7 @@ textarea{
 
       <div class="field full">
 
-        <label>
+        <label for="name">
           ¿Qué es?
         </label>
 
@@ -1697,7 +2040,7 @@ textarea{
 
       <div class="field">
 
-        <label>
+        <label for="category">
           Categoría
         </label>
 
@@ -1746,7 +2089,7 @@ textarea{
 
       <div class="field">
 
-        <label>
+        <label for="priority">
           Prioridad
         </label>
 
@@ -1771,7 +2114,7 @@ textarea{
 
       <div class="field full">
 
-        <label>
+        <label for="description">
           Detalle o recomendación
         </label>
 
@@ -1785,7 +2128,7 @@ textarea{
 
       <div class="field">
 
-        <label>
+        <label for="qty">
           Cantidad
         </label>
 
@@ -1801,7 +2144,7 @@ textarea{
 
       <div class="field">
 
-        <label>
+        <label for="suggestedBy">
           ¿Quién lo sugiere?
         </label>
 
@@ -1841,66 +2184,63 @@ textarea{
 
 
 <dialog id="reserveDialog">
-
-  <form
-    class="modal"
-    id="reserveForm"
-  >
-
-    <h3>
-      Yo me encargo 💛
-    </h3>
-
+  <form class="modal" id="reserveForm">
+    <h3>Yo me encargo 💛</h3>
     <p>
-      Deja tu nombre para que
-      nadie compre lo mismo.
+      Puedes cubrir una parte o todo lo que todavía falta.
+      La reserva se actualizará para todos al mismo tiempo.
     </p>
 
-    <input
-      type="hidden"
-      id="reserveId"
-    >
+    <input type="hidden" id="reserveId">
 
+    <div class="form-grid">
+      <div class="field">
+        <label for="reservedBy">Tu nombre</label>
+        <input id="reservedBy" required autocomplete="name" placeholder="Ej. Vale">
+      </div>
 
-    <div class="field">
-
-      <label>
-        Tu nombre
-      </label>
-
-      <input
-        id="reservedBy"
-        required
-        placeholder="Ej. Vale"
-      >
-
+      <div class="field">
+        <label for="reserveQty">¿Cuántas unidades?</label>
+        <input id="reserveQty" type="number" min="1" step="1" value="1" required inputmode="numeric">
+      </div>
     </div>
 
+    <div class="quantity-hint" id="reserveHint" role="status" aria-live="polite"></div>
 
     <div class="modal-actions">
-
-      <button
-        class="btn"
-        type="button"
-        onclick="reserveDialog.close()"
-      >
-        Cancelar
-      </button>
-
-
-      <button
-        class="btn primary"
-      >
-        Listo, me encargo
-      </button>
-
+      <button class="btn" type="button" onclick="reserveDialog.close()">Cancelar</button>
+      <button class="btn primary" id="reserveSubmit" type="submit">Listo, me encargo</button>
     </div>
-
   </form>
-
 </dialog>
 
 
+
+
+
+<dialog id="receiveDialog">
+  <form class="modal" id="receiveForm">
+    <h3>Ya llegó a casa 💛</h3>
+    <p>
+      Registra cuántas unidades ya tenemos. Si había reservas,
+      esas unidades se descontarán automáticamente.
+    </p>
+
+    <input type="hidden" id="receiveId">
+
+    <div class="field">
+      <label for="receiveQty">¿Cuántas llegaron?</label>
+      <input id="receiveQty" type="number" min="1" step="1" value="1" required inputmode="numeric">
+    </div>
+
+    <div class="quantity-hint" id="receiveHint" role="status" aria-live="polite"></div>
+
+    <div class="modal-actions">
+      <button class="btn" type="button" onclick="receiveDialog.close()">Cancelar</button>
+      <button class="btn primary" id="receiveSubmit" type="submit">Registrar llegada</button>
+    </div>
+  </form>
+</dialog>
 
 <dialog id="filterDialog">
 
@@ -1996,825 +2336,481 @@ textarea{
 
 
 
+
+<nav class="mobile-nav" aria-label="Acciones principales">
+  <button type="button" onclick="focusSearch()" aria-label="Buscar">
+    <span>⌕</span><small>Buscar</small>
+  </button>
+  <button type="button" onclick="goCategories()" aria-label="Ir a categorías">
+    <span>◫</span><small>Categorías</small>
+  </button>
+  <button type="button" onclick="openFilters()" aria-label="Filtrar lista">
+    <span>☰</span><small>Filtrar</small>
+  </button>
+  <button type="button" onclick="openViews()" aria-label="Cambiar vista">
+    <span>▦</span><small>Vista</small>
+  </button>
+  <button class="mobile-nav-add" type="button" onclick="openAdd()" aria-label="Agregar a la lista">
+    <span>＋</span><small>Agregar</small>
+  </button>
+</nav>
+
 <div
   class="toast"
   id="toast"
+  role="status"
+  aria-live="polite"
+  aria-atomic="true"
 ></div>
 
 
 <script>
+/* ============================================================
+   AMELIA V4.1 · versión robusta
+   - Sin dependencias de variables globales creadas por IDs
+   - UUID con fallback
+   - localStorage seguro
+   - cantidades parciales
+   - reservas concurrentes con ETag
+   ============================================================ */
 
-const STORAGE_KEY =
-  "amelia-list-v2-cache";
+const STORAGE_KEY = "amelia-list-v4-cache";
+const VIEW_KEY = "amelia-view-v1";
 
-/* Misma Realtime Database y MISMA RAMA que usa el Panel UTE.
-   Amelia vive como subrama de panel_talleres para reutilizar las reglas existentes. */
-const FB_URL =
-  "https://ee12026-f5e3d-default-rtdb.firebaseio.com";
+const FB_URL = "https://ee12026-f5e3d-default-rtdb.firebaseio.com";
+const FB_ITEMS_PATH = FB_URL + "/panel_talleres/amelia_lista/items";
 
-const FB_ITEMS_PATH =
-  FB_URL + "/panel_talleres/amelia_lista/items";
+function uid(){
+  try{
+    if(globalThis.crypto && typeof globalThis.crypto.randomUUID === "function"){
+      return globalThis.crypto.randomUUID();
+    }
+  }catch(_e){}
+  return "id-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2,11);
+}
 
+function storageGet(key){
+  try{return localStorage.getItem(key);}catch(_e){return null;}
+}
+function storageSet(key,value){
+  try{localStorage.setItem(key,value);return true;}catch(_e){return false;}
+}
+
+const els = {
+  grid: document.getElementById("grid"),
+  itemDialog: document.getElementById("itemDialog"),
+  itemForm: document.getElementById("itemForm"),
+  modalTitle: document.getElementById("modalTitle"),
+  editId: document.getElementById("editId"),
+  itemName: document.getElementById("name"),
+  category: document.getElementById("category"),
+  priority: document.getElementById("priority"),
+  description: document.getElementById("description"),
+  qty: document.getElementById("qty"),
+  suggestedBy: document.getElementById("suggestedBy"),
+
+  reserveDialog: document.getElementById("reserveDialog"),
+  reserveForm: document.getElementById("reserveForm"),
+  reserveId: document.getElementById("reserveId"),
+  reservedBy: document.getElementById("reservedBy"),
+  reserveQty: document.getElementById("reserveQty"),
+  reserveHint: document.getElementById("reserveHint"),
+  reserveSubmit: document.getElementById("reserveSubmit"),
+
+  receiveDialog: document.getElementById("receiveDialog"),
+  receiveForm: document.getElementById("receiveForm"),
+  receiveId: document.getElementById("receiveId"),
+  receiveQty: document.getElementById("receiveQty"),
+  receiveHint: document.getElementById("receiveHint"),
+  receiveSubmit: document.getElementById("receiveSubmit"),
+
+  filterDialog: document.getElementById("filterDialog"),
+  statusOptions: document.getElementById("statusOptions"),
+  priorityOptions: document.getElementById("priorityOptions"),
+  filterCount: document.getElementById("filterCount"),
+
+  viewDialog: document.getElementById("viewDialog"),
+  viewLabel: document.getElementById("viewLabel"),
+  viewIcon: document.getElementById("viewIcon"),
+
+  categoryTabs: document.getElementById("categoryTabs"),
+  searchInput: document.getElementById("searchInput"),
+  activeFilters: document.getElementById("activeFilters"),
+
+  totalCount: document.getElementById("totalCount"),
+  pendingCount: document.getElementById("pendingCount"),
+  reservedCount: document.getElementById("reservedCount"),
+  boughtCount: document.getElementById("boughtCount"),
+  progress: document.getElementById("progress"),
+
+  syncNote: document.getElementById("syncNote"),
+  syncText: document.getElementById("syncText"),
+  toast: document.getElementById("toast"),
+
+  dashMissingText: document.getElementById("dashMissingText"),
+  dashAlmostText: document.getElementById("dashAlmostText"),
+  dashAllText: document.getElementById("dashAllText")
+};
+
+let items = [];
+try{
+  const cached = storageGet(STORAGE_KEY);
+  items = cached ? JSON.parse(cached) : [];
+  if(!Array.isArray(items)) items=[];
+}catch(_e){
+  items=[];
+}
+
+let activeCategory = "Todo";
 let activeStatus = "all";
 let activePriority = "all";
+let activeSmartFilter = "all";
 let tempStatus = "all";
 let tempPriority = "all";
 let cloudReady = false;
+let cloudState = "connecting";
 let syncTimer = null;
+let currentView = storageGet(VIEW_KEY) || "cards";
 
-const VIEW_KEY = "amelia-view-v1";
-let currentView = localStorage.getItem(VIEW_KEY) || (window.innerWidth <= 680 ? "compact" : "cards");
 const VIEW_META = {
   cards:{label:"Tarjetas",icon:"▦"},
   list:{label:"Lista",icon:"☷"},
   compact:{label:"Compacta",icon:"▤"},
   status:{label:"Por estado",icon:"◫"}
 };
-
+if(!VIEW_META[currentView]) currentView="cards";
 
 const CATEGORIES = [
-
-  {
-    name:"Todo",
-    icon:"✦",
-    color:"#292331"
-  },
-
-  {
-    name:"Higiene",
-    icon:"🫧",
-    color:"#A9D8EA"
-  },
-
-  {
-    name:"Ropa",
-    icon:"🧦",
-    color:"#F19AA5"
-  },
-
-  {
-    name:"Alimentación",
-    icon:"🍼",
-    color:"#FFB47D"
-  },
-
-  {
-    name:"Sueño",
-    icon:"🌙",
-    color:"#BFA8E9"
-  },
-
-  {
-    name:"Paseo",
-    icon:"☁️",
-    color:"#A9DCC0"
-  },
-
-  {
-    name:"Salud",
-    icon:"✚",
-    color:"#F6D46F"
-  },
-
-  {
-    name:"Juego y estimulación",
-    icon:"☆",
-    color:"#D6B7E8"
-  },
-
-  {
-    name:"Mamá y papá",
-    icon:"♡",
-    color:"#E9B7A9"
-  },
-
-  {
-    name:"Otros",
-    icon:"…",
-    color:"#CFC7C4"
-  }
-
+  {name:"Todo",icon:"✦",color:"#292331"},
+  {name:"Higiene",icon:"🫧",color:"#A9D8EA"},
+  {name:"Ropa",icon:"🧦",color:"#F19AA5"},
+  {name:"Alimentación",icon:"🍼",color:"#FFB47D"},
+  {name:"Sueño",icon:"🌙",color:"#BFA8E9"},
+  {name:"Paseo",icon:"☁️",color:"#A9DCC0"},
+  {name:"Salud",icon:"✚",color:"#F6D46F"},
+  {name:"Juego y estimulación",icon:"☆",color:"#D6B7E8"},
+  {name:"Mamá y papá",icon:"♡",color:"#E9B7A9"},
+  {name:"Otros",icon:"…",color:"#CFC7C4"}
 ];
-
-
-let activeCategory =
-  "Todo";
-
 
 const starter = [
-
-  {
-    id:crypto.randomUUID(),
-
-    name:
-      "Pañales recién nacido",
-
-    category:
-      "Higiene",
-
-    priority:
-      "Alta",
-
-    description:
-      "No comprar demasiados RN; ideal probar marcas primero.",
-
-    qty:2,
-
-    status:
-      "pending",
-
-    suggestedBy:"",
-
-    reservedBy:""
-  },
-
-
-  {
-    id:crypto.randomUUID(),
-
-    name:
-      "Toallitas húmedas",
-
-    category:
-      "Higiene",
-
-    priority:
-      "Alta",
-
-    description:
-      "Idealmente sin perfume y para piel sensible.",
-
-    qty:4,
-
-    status:
-      "pending",
-
-    suggestedBy:"",
-
-    reservedBy:""
-  },
-
-
-  {
-    id:crypto.randomUUID(),
-
-    name:
-      "Bodies manga corta",
-
-    category:
-      "Ropa",
-
-    priority:
-      "Alta",
-
-    description:
-      "Tallas 0–3 y 3–6 meses.",
-
-    qty:6,
-
-    status:
-      "pending",
-
-    suggestedBy:"",
-
-    reservedBy:""
-  },
-
-
-  {
-    id:crypto.randomUUID(),
-
-    name:
-      "Muselinas",
-
-    category:
-      "Higiene",
-
-    priority:
-      "Media",
-
-    description:
-      "Sirven para lactancia, muda, paseo y mil cosas más.",
-
-    qty:4,
-
-    status:
-      "reserved",
-
-    suggestedBy:
-      "Cami",
-
-    reservedBy:
-      "Cami"
-  },
-
-
-  {
-    id:crypto.randomUUID(),
-
-    name:
-      "Termómetro digital",
-
-    category:
-      "Salud",
-
-    priority:
-      "Alta",
-
-    description:
-      "Uno sencillo y confiable.",
-
-    qty:1,
-
-    status:
-      "bought",
-
-    suggestedBy:"",
-
-    reservedBy:""
-  },
-
-
-  {
-    id:crypto.randomUUID(),
-
-    name:
-      "Manta liviana",
-
-    category:
-      "Sueño",
-
-    priority:
-      "Media",
-
-    description:
-      "Para coche o brazos; no para dejar suelta en la cuna.",
-
-    qty:2,
-
-    status:
-      "pending",
-
-    suggestedBy:"",
-
-    reservedBy:""
-  },
-
-
-  {
-    id:crypto.randomUUID(),
-
-    name:
-      "Mochila / bolso de muda",
-
-    category:
-      "Paseo",
-
-    priority:
-      "Media",
-
-    description:
-      "Con espacio para muda, pañales y mamadera.",
-
-    qty:1,
-
-    status:
-      "pending",
-
-    suggestedBy:"",
-
-    reservedBy:""
-  },
-
-
-  {
-    id:crypto.randomUUID(),
-
-    name:
-      "Libro de tela o alto contraste",
-
-    category:
-      "Juego y estimulación",
-
-    priority:
-      "Baja",
-
-    description:
-      "Para los primeros meses.",
-
-    qty:1,
-
-    status:
-      "pending",
-
-    suggestedBy:"",
-
-    reservedBy:""
-  }
-
+  {id:uid(),name:"Pañales recién nacido",category:"Higiene",priority:"Alta",description:"No comprar demasiados RN; ideal probar marcas primero.",qty:2,status:"pending",suggestedBy:"",reservedBy:""},
+  {id:uid(),name:"Toallitas húmedas",category:"Higiene",priority:"Alta",description:"Idealmente sin perfume y para piel sensible.",qty:4,status:"pending",suggestedBy:"",reservedBy:""},
+  {id:uid(),name:"Bodies manga corta",category:"Ropa",priority:"Alta",description:"Tallas 0–3 y 3–6 meses.",qty:6,status:"pending",suggestedBy:"",reservedBy:""},
+  {id:uid(),name:"Muselinas",category:"Higiene",priority:"Media",description:"Sirven para lactancia, muda, paseo y mil cosas más.",qty:4,status:"reserved",suggestedBy:"Cami",reservedBy:"Cami"},
+  {id:uid(),name:"Termómetro digital",category:"Salud",priority:"Alta",description:"Uno sencillo y confiable.",qty:1,status:"bought",suggestedBy:"",reservedBy:""},
+  {id:uid(),name:"Manta liviana",category:"Sueño",priority:"Media",description:"Para coche o brazos; no para dejar suelta en la cuna.",qty:2,status:"pending",suggestedBy:"",reservedBy:""},
+  {id:uid(),name:"Mochila / bolso de muda",category:"Paseo",priority:"Media",description:"Con espacio para muda, pañales y mamadera.",qty:1,status:"pending",suggestedBy:"",reservedBy:""},
+  {id:uid(),name:"Libro de tela o alto contraste",category:"Juego y estimulación",priority:"Baja",description:"Para los primeros meses.",qty:1,status:"pending",suggestedBy:"",reservedBy:""}
 ];
 
-
-let items =
-  JSON.parse(
-    localStorage.getItem(
-      STORAGE_KEY
-    ) || "null"
-  )
-  || [];
-
-
-const grid =
-  document.getElementById(
-    "grid"
-  );
-
-
-const itemDialog =
-  document.getElementById(
-    "itemDialog"
-  );
-
-
-const reserveDialog =
-  document.getElementById(
-    "reserveDialog"
-  );
-
-const filterDialog =
-  document.getElementById(
-    "filterDialog"
-  );
-
-const viewDialog =
-  document.getElementById(
-    "viewDialog"
-  );
-
-
-function cacheLocal(){
-
-  try{
-    localStorage.setItem(
-      STORAGE_KEY,
-      JSON.stringify(items)
-    );
-  }catch(_e){}
-
+function esc(s=""){
+  return String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
 }
 
-function setSyncState(ok,text){
+function nint(v,min=0){
+  const n=Math.floor(Number(v)||0);
+  return Math.max(min,n);
+}
 
-  cloudReady = !!ok;
+function totalReserved(i){
+  return (Array.isArray(i.reservations)?i.reservations:[]).reduce((sum,r)=>sum+nint(r.qty,0),0);
+}
 
-  const note =
-    document.getElementById("syncNote");
+function derivedState(i){
+  const q=Math.max(1,nint(i.qty,1));
+  const owned=nint(i.ownedQty,0);
+  if(owned>=q)return "bought";
+  if(totalReserved(i)>0)return "reserved";
+  return "pending";
+}
 
-  const label =
-    document.getElementById("syncText");
+function normalizeItem(raw,idOverride){
+  const i={...(raw||{})};
+  i.id=i.id||idOverride||uid();
+  i.qty=Math.max(1,nint(i.qty,1));
 
-  if(note){
-    note.classList.toggle("offline",!ok);
+  if(!Array.isArray(i.reservations)){
+    i.reservations=[];
+    if(i.status==="reserved" && i.reservedBy){
+      i.reservations=[{
+        id:"legacy-"+i.id,
+        name:String(i.reservedBy),
+        qty:i.qty,
+        createdAt:i.updatedAt||Date.now()
+      }];
+    }
   }
 
-  if(label){
-    label.textContent =
-      text ||
-      (
-        ok
-        ? "Lista compartida sincronizada"
-        : "Sin conexión · mostrando copia local"
-      );
-  }
+  i.reservations=i.reservations
+    .map(r=>({
+      id:r.id||uid(),
+      name:String(r.name||r.reservedBy||"Reserva"),
+      qty:Math.max(1,nint(r.qty,1)),
+      createdAt:r.createdAt||Date.now()
+    }))
+    .filter(r=>r.qty>0);
 
+  if(i.ownedQty==null){
+    i.ownedQty=i.status==="bought" ? i.qty : 0;
+  }
+  i.ownedQty=nint(i.ownedQty,0);
+
+  delete i.reservedBy;
+  i.status=derivedState(i);
+  return i;
+}
+
+function coveredQty(i){
+  return Math.min(i.qty,nint(i.ownedQty,0)+totalReserved(i));
+}
+function missingQty(i){
+  return Math.max(0,i.qty-nint(i.ownedQty,0)-totalReserved(i));
+}
+function isAlmost(i){
+  const missing=missingQty(i);
+  if(missing<=0)return false;
+  const progress=coveredQty(i)/Math.max(1,i.qty);
+  return progress>=0.5 || missing===1;
+}
+
+function cacheLocal(){
+  storageSet(STORAGE_KEY,JSON.stringify(items));
+}
+
+function setSyncState(ok,text,state){
+  cloudReady=!!ok;
+  cloudState=state || (ok?"online":"offline");
+
+  if(els.syncNote)els.syncNote.classList.toggle("offline",!ok);
+  if(els.syncText){
+    els.syncText.textContent=text||(ok?"Lista compartida sincronizada":"Sin conexión · solo lectura");
+  }
+  updateMutationAvailability();
+}
+
+function updateMutationAvailability(){
+  document.querySelectorAll("[data-cloud-action]").forEach(btn=>{
+    btn.disabled=!cloudReady;
+    btn.title=!cloudReady?"Necesitas conexión para modificar la lista":"";
+  });
 }
 
 function itemCloudUrl(id){
-
-  return (
-    FB_ITEMS_PATH +
-    "/" +
-    encodeURIComponent(id) +
-    ".json"
-  );
-
+  return FB_ITEMS_PATH+"/"+encodeURIComponent(id)+".json";
 }
 
 async function fetchCloudItems(){
-
-  const r =
-    await fetch(
-      FB_ITEMS_PATH + ".json",
-      {
-        cache:"no-store"
-      }
-    );
-
-  const data =
-    await r.json()
-    .catch(()=>null);
-
-  if(
-    !r.ok ||
-    (
-      data &&
-      data.error
-    )
-  ){
-    throw new Error(
-      data?.error ||
-      ("HTTP " + r.status)
-    );
-  }
-
+  const r=await fetch(FB_ITEMS_PATH+".json",{cache:"no-store"});
+  const data=await r.json().catch(()=>null);
+  if(!r.ok || (data&&data.error))throw new Error(data?.error||("HTTP "+r.status));
   return data;
-
 }
 
 function cloudObjectToItems(data){
-
-  if(!data){
-    return [];
-  }
-
-  if(Array.isArray(data)){
-    return data.filter(Boolean);
-  }
-
-  return Object.entries(data)
-    .map(([id,value])=>({
-      ...(value || {}),
-      id:(value && value.id) || id
-    }))
-    .filter(x=>x && x.id);
-
+  if(!data)return [];
+  const arr=Array.isArray(data)
+    ? data.filter(Boolean)
+    : Object.entries(data).map(([id,value])=>({...value,id:(value&&value.id)||id}));
+  return arr.filter(Boolean).map(x=>normalizeItem(x,x.id));
 }
 
 async function seedCloudIfEmpty(){
+  const payload={};
+  starter.map(x=>normalizeItem(x,x.id)).forEach(item=>payload[item.id]=item);
 
-  const payload = {};
-
-  starter.forEach(item=>{
-    payload[item.id] = item;
+  const r=await fetch(FB_ITEMS_PATH+".json",{
+    method:"PUT",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(payload)
   });
-
-  const r =
-    await fetch(
-      FB_ITEMS_PATH + ".json",
-      {
-        method:"PUT",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        body:JSON.stringify(payload)
-      }
-    );
-
-  const data =
-    await r.json()
-    .catch(()=>null);
-
-  if(
-    !r.ok ||
-    (
-      data &&
-      data.error
-    )
-  ){
-    throw new Error(
-      data?.error ||
-      ("HTTP " + r.status)
-    );
-  }
-
-  return starter.map(x=>({...x}));
-
+  const data=await r.json().catch(()=>null);
+  if(!r.ok || (data&&data.error))throw new Error(data?.error||("HTTP "+r.status));
+  return Object.values(payload);
 }
 
-async function loadCloudItems(options={}){
-
-  const {
-    seedIfEmpty=false,
-    silent=false
-  } = options;
-
+async function loadCloudItems({seedIfEmpty=false,silent=false}={}){
   try{
+    let next=cloudObjectToItems(await fetchCloudItems());
+    if(seedIfEmpty && next.length===0)next=await seedCloudIfEmpty();
 
-    let data =
-      await fetchCloudItems();
-
-    let next =
-      cloudObjectToItems(data);
-
-    if(
-      seedIfEmpty &&
-      next.length===0
-    ){
-      next =
-        await seedCloudIfEmpty();
-    }
-
-    items = next;
-
+    items=next;
     cacheLocal();
     render();
-    setSyncState(
-      true,
-      "Lista compartida sincronizada"
-    );
-
+    setSyncState(true,"Lista compartida sincronizada","online");
     return true;
-
   }catch(e){
-
-    console.warn(
-      "Firebase Amelia · lectura",
-      e
-    );
-
+    console.warn("Firebase Amelia · lectura",e);
     if(!items.length){
-      items =
-        JSON.parse(
-          localStorage.getItem(
-            STORAGE_KEY
-          ) || "null"
-        )
-        || starter.map(x=>({...x}));
+      let cached=[];
+      try{
+        const raw=storageGet(STORAGE_KEY);
+        cached=raw?JSON.parse(raw):[];
+      }catch(_e){}
+      items=(Array.isArray(cached)&&cached.length?cached:starter).map(x=>normalizeItem(x,x.id));
+    }else{
+      items=items.map(x=>normalizeItem(x,x.id));
     }
-
     render();
-    setSyncState(
-      false,
-      "Sin conexión · mostrando copia local"
-    );
-
-    if(!silent){
-      showToast(
-        "No se pudo conectar con la nube"
-      );
-    }
-
+    setSyncState(false,"Sin conexión · puedes mirar, pero no modificar","offline");
+    if(!silent)showToast("No se pudo conectar con la nube");
     return false;
   }
-
 }
 
 async function putCloudItem(item){
-
-  cacheLocal();
-  render();
-
-  try{
-
-    const r =
-      await fetch(
-        itemCloudUrl(item.id),
-        {
-          method:"PUT",
-          headers:{
-            "Content-Type":"application/json"
-          },
-          body:JSON.stringify(item)
-        }
-      );
-
-    const data =
-      await r.json()
-      .catch(()=>null);
-
-    if(
-      !r.ok ||
-      (
-        data &&
-        data.error
-      )
-    ){
-      throw new Error(
-        data?.error ||
-        ("HTTP " + r.status)
-      );
-    }
-
-    setSyncState(
-      true,
-      "Cambios guardados en la nube"
-    );
-
-    return true;
-
-  }catch(e){
-
-    console.warn(
-      "Firebase Amelia · escritura",
-      e
-    );
-
-    setSyncState(
-      false,
-      "No se pudo guardar en la nube"
-    );
-
-    showToast(
-      "Cambio guardado solo en este celular"
-    );
-
+  if(!cloudReady){
+    showToast(cloudState==="connecting"?"Espera un momento: estamos conectando…":"Necesitas conexión para guardar");
     return false;
   }
 
+  const normalized=normalizeItem(item,item.id);
+  try{
+    const r=await fetch(itemCloudUrl(normalized.id),{
+      method:"PUT",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(normalized)
+    });
+    const data=await r.json().catch(()=>null);
+    if(!r.ok || (data&&data.error))throw new Error(data?.error||("HTTP "+r.status));
+
+    setSyncState(true,"Cambios guardados en la nube","online");
+    return true;
+  }catch(e){
+    console.warn("Firebase Amelia · escritura",e);
+    setSyncState(false,"Se perdió la conexión · recarga antes de editar","offline");
+    showToast("No se pudo guardar el cambio");
+    await loadCloudItems({silent:true});
+    return false;
+  }
+}
+
+async function atomicUpdateItem(id,updater,maxRetries=5){
+  if(!cloudReady)throw new Error("offline");
+
+  for(let attempt=0;attempt<maxRetries;attempt++){
+    const get=await fetch(itemCloudUrl(id),{
+      method:"GET",
+      headers:{"X-Firebase-ETag":"true"},
+      cache:"no-store"
+    });
+
+    const currentData=await get.json().catch(()=>null);
+    if(!get.ok || (currentData&&currentData.error))throw new Error(currentData?.error||("HTTP "+get.status));
+    if(!currentData)throw new Error("missing");
+
+    const etag=get.headers.get("ETag");
+    const current=normalizeItem(currentData,id);
+    const nextRaw=await updater(
+      typeof structuredClone==="function"
+        ? structuredClone(current)
+        : JSON.parse(JSON.stringify(current))
+    );
+
+    if(!nextRaw)return {ok:false,cancelled:true,current};
+
+    const next=normalizeItem({...nextRaw,id,updatedAt:Date.now()},id);
+    const headers={"Content-Type":"application/json"};
+    if(etag)headers["if-match"]=etag;
+
+    const put=await fetch(itemCloudUrl(id),{
+      method:"PUT",
+      headers,
+      body:JSON.stringify(next)
+    });
+
+    if(put.status===412)continue;
+
+    const saved=await put.json().catch(()=>null);
+    if(!put.ok || (saved&&saved.error))throw new Error(saved?.error||("HTTP "+put.status));
+
+    const idx=items.findIndex(x=>x.id===id);
+    if(idx>=0)items[idx]=next; else items.unshift(next);
+    cacheLocal();
+    render();
+    setSyncState(true,"Lista compartida sincronizada","online");
+    return {ok:true,item:next};
+  }
+
+  throw new Error("conflict");
 }
 
 async function deleteCloudItem(id){
-
-  try{
-
-    const r =
-      await fetch(
-        itemCloudUrl(id),
-        {
-          method:"DELETE"
-        }
-      );
-
-    const data =
-      await r.json()
-      .catch(()=>null);
-
-    if(
-      !r.ok ||
-      (
-        data &&
-        data.error
-      )
-    ){
-      throw new Error(
-        data?.error ||
-        ("HTTP " + r.status)
-      );
-    }
-
-    setSyncState(
-      true,
-      "Lista compartida sincronizada"
-    );
-
-    return true;
-
-  }catch(e){
-
-    console.warn(
-      "Firebase Amelia · eliminación",
-      e
-    );
-
-    setSyncState(
-      false,
-      "No se pudo eliminar en la nube"
-    );
-
-    showToast(
-      "No se pudo eliminar de la nube"
-    );
-
+  if(!cloudReady){
+    showToast("Necesitas conexión para eliminar");
     return false;
   }
-
+  try{
+    const r=await fetch(itemCloudUrl(id),{method:"DELETE"});
+    const data=await r.json().catch(()=>null);
+    if(!r.ok || (data&&data.error))throw new Error(data?.error||("HTTP "+r.status));
+    return true;
+  }catch(e){
+    console.warn("Firebase Amelia · eliminación",e);
+    showToast("No se pudo eliminar");
+    return false;
+  }
 }
-
-
-function esc(s=""){
-
-  return String(s)
-    .replace(
-      /[&<>"']/g,
-      m=>({
-        "&":"&amp;",
-        "<":"&lt;",
-        ">":"&gt;",
-        '"':"&quot;",
-        "'":"&#039;"
-      }[m])
-    );
-
-}
-
 
 function catData(name){
-
-  return (
-    CATEGORIES.find(
-      c=>c.name===name
-    )
-    ||
-    CATEGORIES[
-      CATEGORIES.length-1
-    ]
-  );
-
+  return CATEGORIES.find(c=>c.name===name)||CATEGORIES[CATEGORIES.length-1];
 }
-
-
-function renderTabs(){
-
-  const box =
-    document.getElementById(
-      "categoryTabs"
-    );
-
-
-  box.innerHTML =
-    CATEGORIES
-    .map(c=>{
-
-      const count =
-        c.name==="Todo"
-
-        ? items.length
-
-        : items.filter(
-            i=>
-              i.category===
-              c.name
-          ).length;
-
-
-      return `
-
-        <button
-          class="
-            cat-btn
-            ${
-              activeCategory===c.name
-              ? "active"
-              : ""
-            }
-          "
-
-          onclick="
-            setCategory(
-              '${c.name.replace(/'/g,"\\'")}'
-            )
-          "
-
-          style="
-            --cat-color:${c.color}
-          "
-        >
-
-          <span class="count">
-            ${count}
-          </span>
-
-          <span class="ico">
-            ${c.icon}
-          </span>
-
-          <span class="label">
-            ${c.name}
-          </span>
-
-        </button>
-
-      `;
-
-    })
-    .join("");
-
-}
-
-
-function setCategory(c){
-
-  activeCategory = c;
-
-  render();
-
-}
-
 
 function stateInfo(i){
+  const state=derivedState(i);
   return {
-    text:
-      i.status==="pending"
-      ? "Todavía falta"
-      : i.status==="reserved"
-      ? "Alguien se encarga"
-      : "Ya llegó",
-    cls:
-      i.status==="pending"
-      ? "pending"
-      : i.status==="reserved"
-      ? "reserved"
-      : "bought"
+    text:state==="pending"?"Todavía falta":state==="reserved"?"Alguien se encarga":"Ya llegó",
+    cls:state==="pending"?"pending":state==="reserved"?"reserved":"bought"
   };
 }
 
-function itemHTML(i,options={}){
-  const cat=catData(i.category);
-  const st=stateInfo(i);
-  const compact=!!options.compact;
+function quantityHTML(i){
+  const owned=Math.min(i.qty,nint(i.ownedQty,0));
+  const reserved=Math.min(Math.max(0,i.qty-owned),totalReserved(i));
+  const missing=Math.max(0,i.qty-owned-reserved);
+  const ownedPct=(owned/i.qty)*100;
+  const reservedPct=(reserved/i.qty)*100;
 
   return `
-    <article class="item ${i.status==="bought"?"done":""}" style="--cat-color:${cat.color}">
+    <div class="quantity-progress" aria-label="${owned} de ${i.qty} ya llegaron, ${reserved} reservadas y ${missing} faltan">
+      <div class="quantity-progress-top">
+        <span>${missing===0?"Objetivo cubierto":`${missing} ${missing===1?"unidad pendiente":"unidades pendientes"}`}</span>
+        <strong>${owned+reserved}/${i.qty} cubiertas</strong>
+      </div>
+      <div class="quantity-track" aria-hidden="true">
+        <span class="quantity-owned" style="width:${ownedPct}%"></span>
+        <span class="quantity-reserved" style="width:${reservedPct}%"></span>
+        <span class="quantity-missing" style="flex:1"></span>
+      </div>
+      <div class="quantity-legend">
+        <span class="l-owned"><i></i>${owned} ya ${owned===1?"llegó":"llegaron"}</span>
+        <span class="l-reserved"><i></i>${reserved} ${reserved===1?"reservada":"reservadas"}</span>
+        <span class="l-missing"><i></i>${missing} ${missing===1?"falta":"faltan"}</span>
+      </div>
+    </div>`;
+}
+
+function reservationsHTML(i){
+  if(!i.reservations?.length)return "";
+  return `
+    <div class="reservation-list">
+      ${i.reservations.map(r=>`
+        <div class="reservation-row">
+          <span>💝 <strong>${esc(r.name)}</strong> · ${r.qty} ${r.qty===1?"unidad":"unidades"}</span>
+          <button type="button" data-cloud-action onclick="cancelReservation('${i.id}','${r.id}')" aria-label="Cancelar reserva de ${esc(r.name)}">×</button>
+        </div>
+      `).join("")}
+    </div>`;
+}
+
+function itemHTML(i){
+  i=normalizeItem(i,i.id);
+  const cat=catData(i.category);
+  const st=stateInfo(i);
+  const missing=missingQty(i);
+
+  return `
+    <article class="item ${st.cls==="bought"?"done":""}" style="--cat-color:${cat.color}">
       <div class="item-top">
         <div>
           <div class="category-label">${cat.icon} ${esc(i.category)}</div>
@@ -2826,32 +2822,21 @@ function itemHTML(i,options={}){
       <div class="description">${esc(i.description||"Sin detalle adicional.")}</div>
 
       <div class="tags">
-        <span class="tag priority-${i.priority}">Prioridad ${esc(i.priority.toLowerCase())}</span>
-        <span class="tag">${i.qty} ${i.qty===1?"unidad":"unidades"}</span>
+        <span class="tag priority-${i.priority}">Prioridad ${esc(String(i.priority||"Media").toLowerCase())}</span>
+        <span class="tag">Meta: ${i.qty} ${i.qty===1?"unidad":"unidades"}</span>
       </div>
 
-      ${i.status==="reserved"&&i.reservedBy
-        ? `<div class="people">💝 <strong>${esc(i.reservedBy)}</strong> se encargará de esto.</div>`
-        : ""}
-
-      ${i.suggestedBy
-        ? `<div class="people">💡 Idea de <strong>${esc(i.suggestedBy)}</strong></div>`
-        : ""}
+      ${quantityHTML(i)}
+      ${reservationsHTML(i)}
+      ${i.suggestedBy?`<div class="people">💡 Idea de <strong>${esc(i.suggestedBy)}</strong></div>`:""}
 
       <div class="actions">
-        ${i.status==="pending"
-          ? `<button class="reserve" onclick="reserve('${i.id}')">Me encargo</button>`
-          : ""}
-
-        ${i.status!=="bought"
-          ? `<button class="ready" onclick="markBought('${i.id}')">Ya lo tenemos</button>`
-          : `<button onclick="undo('${i.id}')">Deshacer</button>`}
-
-        <button class="edit" onclick="editItem('${i.id}')">Editar</button>
-        <button class="remove" onclick="removeItem('${i.id}')" title="Eliminar" aria-label="Eliminar ${esc(i.name)}">×</button>
+        ${missing>0?`<button class="reserve" type="button" data-cloud-action onclick="reserve('${i.id}')">Me encargo</button>`:""}
+        ${nint(i.ownedQty,0)<i.qty?`<button class="ready" type="button" data-cloud-action onclick="openReceive('${i.id}')">Ya llegó</button>`:""}
+        <button class="edit" type="button" data-cloud-action onclick="editItem('${i.id}')">Editar</button>
+        <button class="remove" type="button" data-cloud-action onclick="removeItem('${i.id}')" title="Eliminar" aria-label="Eliminar ${esc(i.name)}">×</button>
       </div>
-    </article>
-  `;
+    </article>`;
 }
 
 function renderByStatus(filtered){
@@ -2862,44 +2847,124 @@ function renderByStatus(filtered){
   ];
 
   return groups.map(g=>{
-    const rows=filtered.filter(i=>i.status===g.key);
+    const rows=filtered.filter(i=>derivedState(i)===g.key);
     return `
       <section class="status-column" aria-label="${g.title}">
-        <div class="status-column-head">
-          <strong>${g.title}</strong>
-          <span>${rows.length}</span>
-        </div>
-        ${rows.length
-          ? rows.map(i=>itemHTML(i,{compact:true})).join("")
-          : `<div class="empty" style="padding:22px 10px">Nada aquí</div>`}
-      </section>
-    `;
+        <div class="status-column-head"><strong>${g.title}</strong><span>${rows.length}</span></div>
+        ${rows.length?rows.map(itemHTML).join(""):`<div class="empty" style="padding:22px 10px">Nada aquí</div>`}
+      </section>`;
   }).join("");
+}
+
+function renderTabs(){
+  if(!els.categoryTabs)return;
+  els.categoryTabs.innerHTML=CATEGORIES.map(c=>{
+    const count=c.name==="Todo"?items.length:items.filter(i=>i.category===c.name).length;
+    return `<button class="cat-btn ${activeCategory===c.name?"active":""}" type="button"
+      onclick="setCategory('${c.name.replace(/'/g,"\\'")}')" style="--cat-color:${c.color}"
+      aria-pressed="${activeCategory===c.name}">
+      <span class="count">${count}</span>
+      <span class="ico">${c.icon}</span>
+      <span class="label">${c.name}</span>
+    </button>`;
+  }).join("");
+}
+
+function setCategory(c){
+  activeCategory=c;
+  render();
+  els.grid?.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function smartPass(i){
+  if(activeSmartFilter==="missing")return missingQty(i)>0;
+  if(activeSmartFilter==="almost")return isAlmost(i);
+  return true;
+}
+
+function setSmartFilter(value){
+  activeSmartFilter=value;
+  if(value==="missing")activeStatus="all";
+  render();
+  els.grid?.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function clearSmartFilter(){activeSmartFilter="all";render();}
+function clearStatusFilter(){activeStatus="all";render();}
+function clearPriorityFilter(){activePriority="all";render();}
+
+function renderActiveFilters(){
+  if(!els.activeFilters)return;
+  const chips=[];
+
+  if(activeSmartFilter==="missing"){
+    chips.push(`<span class="active-filter-chip">Solo lo que falta <button type="button" onclick="clearSmartFilter()" aria-label="Quitar filtro solo lo que falta">×</button></span>`);
+  }
+  if(activeSmartFilter==="almost"){
+    chips.push(`<span class="active-filter-chip">Casi llegamos <button type="button" onclick="clearSmartFilter()" aria-label="Quitar filtro casi llegamos">×</button></span>`);
+  }
+  if(activeStatus!=="all"){
+    const label={pending:"Todavía falta",reserved:"Alguien se encarga",bought:"Ya llegó"}[activeStatus]||activeStatus;
+    chips.push(`<span class="active-filter-chip">Estado: ${label} <button type="button" onclick="clearStatusFilter()" aria-label="Quitar filtro de estado">×</button></span>`);
+  }
+  if(activePriority!=="all"){
+    chips.push(`<span class="active-filter-chip">Prioridad: ${activePriority} <button type="button" onclick="clearPriorityFilter()" aria-label="Quitar filtro de prioridad">×</button></span>`);
+  }
+  if(activeCategory!=="Todo"){
+    chips.push(`<span class="active-filter-chip">${esc(activeCategory)} <button type="button" onclick="setCategory('Todo')" aria-label="Quitar categoría ${esc(activeCategory)}">×</button></span>`);
+  }
+
+  els.activeFilters.innerHTML=chips.join("");
+}
+
+function renderDashboard(){
+  const missingItems=items.filter(i=>missingQty(i)>0);
+  const missingUnits=missingItems.reduce((s,i)=>s+missingQty(i),0);
+  const almost=items.filter(isAlmost);
+
+  if(els.dashMissingText){
+    els.dashMissingText.textContent=missingUnits
+      ? `${missingUnits} ${missingUnits===1?"unidad pendiente":"unidades pendientes"} en ${missingItems.length} ${missingItems.length===1?"artículo":"artículos"}`
+      : "¡Ya está todo cubierto!";
+  }
+
+  if(els.dashAlmostText){
+    els.dashAlmostText.textContent=almost.length
+      ? `${almost.length} ${almost.length===1?"artículo está":"artículos están"} a un pasito`
+      : "Por ahora no hay artículos a medio camino";
+  }
+
+  if(els.dashAllText){
+    els.dashAllText.textContent=`${items.length} ${items.length===1?"artículo":"artículos"} en la lista`;
+  }
+
+  document.querySelectorAll("[data-smart-card]").forEach(btn=>{
+    btn.classList.toggle("active",btn.dataset.smartCard===activeSmartFilter);
+  });
 }
 
 function updateViewUI(){
   const meta=VIEW_META[currentView]||VIEW_META.cards;
-  const label=document.getElementById("viewLabel");
-  const icon=document.getElementById("viewIcon");
-  if(label)label.textContent=meta.label;
-  if(icon)icon.textContent=meta.icon;
+  if(els.viewLabel)els.viewLabel.textContent=meta.label;
+  if(els.viewIcon)els.viewIcon.textContent=meta.icon;
 
   document.querySelectorAll("[data-view-choice]").forEach(btn=>{
-    btn.classList.toggle("active",btn.dataset.viewChoice===currentView);
-    btn.setAttribute("aria-pressed",btn.dataset.viewChoice===currentView ? "true" : "false");
+    const active=btn.dataset.viewChoice===currentView;
+    btn.classList.toggle("active",active);
+    btn.setAttribute("aria-pressed",active?"true":"false");
   });
 }
 
 function openViews(){
   updateViewUI();
-  viewDialog.showModal();
+  els.viewDialog?.showModal();
 }
 
 function setView(v){
   if(!VIEW_META[v])return;
   currentView=v;
-  try{localStorage.setItem(VIEW_KEY,v);}catch(_e){}
-  viewDialog.close();
+  storageSet(VIEW_KEY,v);
+  if(els.viewDialog?.open)els.viewDialog.close();
   render();
 }
 
@@ -2908,703 +2973,501 @@ document.querySelectorAll("[data-view-choice]").forEach(btn=>{
 });
 
 function render(){
-
+  items=items.map(x=>normalizeItem(x,x.id));
   renderTabs();
 
-  const search =
-    document
-      .getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
+  const search=(els.searchInput?.value||"").toLowerCase().trim();
 
-  const status = activeStatus;
-  const priority = activePriority;
+  const filtered=items.filter(i=>{
+    const catOk=activeCategory==="Todo"||i.category===activeCategory;
+    const statusOk=activeStatus==="all"||derivedState(i)===activeStatus;
+    const priorityOk=activePriority==="all"||i.priority===activePriority;
+    const smartOk=smartPass(i);
+    const reservationNames=(i.reservations||[]).map(r=>r.name).join(" ");
+    const searchOk=(i.name+" "+i.description+" "+i.category+" "+i.suggestedBy+" "+reservationNames).toLowerCase().includes(search);
+    return catOk&&statusOk&&priorityOk&&smartOk&&searchOk;
+  });
 
-  const filtered =
-    items.filter(i=>{
+  if(els.grid){
+    els.grid.className="list view-"+currentView;
 
-      const catOk =
-        activeCategory==="Todo"
-        || i.category===activeCategory;
-
-      const statusOk =
-        status==="all"
-        || i.status===status;
-
-      const priorityOk =
-        priority==="all"
-        || i.priority===priority;
-
-      const searchOk =
-        (
-          i.name+" "+
-          i.description+" "+
-          i.category+" "+
-          i.suggestedBy+" "+
-          i.reservedBy
-        )
-        .toLowerCase()
-        .includes(search);
-
-      return catOk && statusOk && priorityOk && searchOk;
-    });
-
-  grid.className="list view-"+currentView;
-
-  if(!filtered.length){
-
-    grid.innerHTML = `
-      <div class="empty">
-        <div style="font-size:2.2rem;margin-bottom:8px">🧸</div>
-        <strong>No hay nada aquí todavía.</strong><br>
-        Cambia los filtros o agrega una nueva idea.
-      </div>
-    `;
-
-  }else if(currentView==="status"){
-
-    grid.innerHTML=renderByStatus(filtered);
-
-  }else{
-
-    grid.innerHTML=filtered.map(i=>itemHTML(i,{compact:currentView==="compact"})).join("");
-
+    if(!filtered.length){
+      els.grid.innerHTML=`<div class="empty"><div style="font-size:2.2rem;margin-bottom:8px">🧸</div><strong>No hay nada aquí.</strong><br>Prueba otra categoría o cambia los filtros.</div>`;
+    }else if(currentView==="status"){
+      els.grid.innerHTML=renderByStatus(filtered);
+    }else{
+      els.grid.innerHTML=filtered.map(itemHTML).join("");
+    }
   }
 
-  const pending=items.filter(i=>i.status==="pending").length;
-  const reserved=items.filter(i=>i.status==="reserved").length;
-  const bought=items.filter(i=>i.status==="bought").length;
+  const pending=items.filter(i=>derivedState(i)==="pending").length;
+  const reserved=items.filter(i=>derivedState(i)==="reserved").length;
+  const bought=items.filter(i=>derivedState(i)==="bought").length;
 
-  totalCount.textContent=items.length;
-  pendingCount.textContent=pending;
-  reservedCount.textContent=reserved;
-  boughtCount.textContent=bought;
+  if(els.totalCount)els.totalCount.textContent=items.length;
+  if(els.pendingCount)els.pendingCount.textContent=pending;
+  if(els.reservedCount)els.reservedCount.textContent=reserved;
+  if(els.boughtCount)els.boughtCount.textContent=bought;
 
-  progress.style.width=
-    (items.length ? Math.round((bought/items.length)*100) : 0)+"%";
+  const totalUnits=items.reduce((s,i)=>s+i.qty,0);
+  const coveredUnits=items.reduce((s,i)=>s+coveredQty(i),0);
+  if(els.progress)els.progress.style.width=(totalUnits?Math.round((coveredUnits/totalUnits)*100):0)+"%";
 
-  const activeFilterCount =
-    (activeStatus!=="all" ? 1 : 0)
-    + (activePriority!=="all" ? 1 : 0);
-
-  const filterBadge=document.getElementById("filterCount");
-
-  if(filterBadge){
-    filterBadge.textContent=activeFilterCount;
-    filterBadge.style.display=activeFilterCount ? "inline-flex" : "none";
+  const activeFilterCount=(activeStatus!=="all"?1:0)+(activePriority!=="all"?1:0);
+  if(els.filterCount){
+    els.filterCount.textContent=activeFilterCount;
+    els.filterCount.style.display=activeFilterCount?"inline-flex":"none";
   }
 
+  renderDashboard();
+  renderActiveFilters();
   updateViewUI();
+  updateMutationAvailability();
 }
-
 
 function openAdd(){
+  if(els.modalTitle)els.modalTitle.textContent="Sumar algo para Amelia";
+  els.itemForm?.reset();
+  if(els.editId)els.editId.value="";
+  if(els.qty)els.qty.value=1;
+  if(els.priority)els.priority.value="Media";
 
-  modalTitle.textContent =
-    "Sumar algo para Amelia";
-
-
-  itemForm.reset();
-
-
-  editId.value =
-    "";
-
-
-  qty.value =
-    1;
-
-
-  priority.value =
-    "Media";
-
-
-  itemDialog.showModal();
-
-}
-
-
-itemForm
-.addEventListener(
-  "submit",
-  async e=>{
-
-    e.preventDefault();
-
-    const id =
-      editId.value;
-
-    const data = {
-      name:
-        name.value.trim(),
-      category:
-        category.value,
-      priority:
-        priority.value,
-      description:
-        description.value.trim(),
-      qty:
-        Number(
-          qty.value
-        )
-        || 1,
-      suggestedBy:
-        suggestedBy
-        .value
-        .trim()
-    };
-
-    let item;
-
-    if(id){
-
-      const idx =
-        items.findIndex(
-          x=>x.id===id
-        );
-
-      if(idx<0)return;
-
-      item = {
-        ...items[idx],
-        ...data,
-        updatedAt:Date.now()
-      };
-
-      items[idx] = item;
-
-    }else{
-
-      item = {
-        id:
-          crypto.randomUUID(),
-        ...data,
-        status:
-          "pending",
-        reservedBy:"",
-        createdAt:Date.now(),
-        updatedAt:Date.now()
-      };
-
-      items.unshift(item);
-
-    }
-
-    itemDialog.close();
-
-    cacheLocal();
-    render();
-
-    const ok =
-      await putCloudItem(item);
-
-    showToast(
-      ok
-      ? (
-          id
-          ? "Cambios guardados ✓"
-          : "Agregado a la lista 💛"
-        )
-      : "Guardado solo en este celular"
-    );
-
+  if(cloudState==="offline"){
+    showToast("Puedes completar la sugerencia, pero necesitarás conexión para guardarla");
   }
-);
 
-function editItem(id){
-
-  const i =
-    items.find(
-      x=>x.id===id
-    );
-
-
-  if(!i)return;
-
-
-  modalTitle.textContent =
-    "Editar";
-
-
-  editId.value =
-    i.id;
-
-
-  name.value =
-    i.name;
-
-
-  category.value =
-    i.category;
-
-
-  priority.value =
-    i.priority;
-
-
-  description.value =
-    i.description;
-
-
-  qty.value =
-    i.qty;
-
-
-  suggestedBy.value =
-    i.suggestedBy
-    || "";
-
-
-  itemDialog.showModal();
-
+  els.itemDialog?.showModal();
+  setTimeout(()=>els.itemName?.focus(),60);
 }
 
+els.itemForm?.addEventListener("submit",async e=>{
+  e.preventDefault();
 
-function reserve(id){
-
-  reserveId.value =
-    id;
-
-
-  reservedBy.value =
-    "";
-
-
-  reserveDialog.showModal();
-
-}
-
-
-reserveForm
-.addEventListener(
-  "submit",
-  async e=>{
-
-    e.preventDefault();
-
-    const i =
-      items.find(
-        x=>
-          x.id===
-          reserveId.value
-      );
-
-    if(!i)return;
-
-    i.status =
-      "reserved";
-
-    i.reservedBy =
-      reservedBy
-      .value
-      .trim();
-
-    i.updatedAt =
-      Date.now();
-
-    reserveDialog.close();
-
-    cacheLocal();
-    render();
-
-    const ok =
-      await putCloudItem(i);
-
-    showToast(
-      ok
-      ? "Quedó reservado 💛"
-      : "Reserva guardada solo en este celular"
-    );
-
-  }
-);
-
-async function markBought(id){
-
-  const i =
-    items.find(
-      x=>x.id===id
-    );
-
-  if(!i)return;
-
-  i.status =
-    "bought";
-
-  i.updatedAt =
-    Date.now();
-
-  cacheLocal();
-  render();
-
-  const ok =
-    await putCloudItem(i);
-
-  showToast(
-    ok
-    ? "¡Ya está con Amelia! ✓"
-    : "Cambio guardado solo en este celular"
-  );
-
-}
-
-
-async function undo(id){
-
-  const i =
-    items.find(
-      x=>x.id===id
-    );
-
-  if(!i)return;
-
-  i.status =
-    "pending";
-
-  i.reservedBy =
-    "";
-
-  i.updatedAt =
-    Date.now();
-
-  cacheLocal();
-  render();
-
-  await putCloudItem(i);
-
-}
-
-
-async function removeItem(id){
-
-  if(
-    !confirm(
-      "¿Eliminar esto de la lista?"
-    )
-  ){
+  if(!cloudReady){
+    showToast(cloudState==="connecting"?"Todavía estamos conectando. Intenta guardar en un momento.":"Necesitas conexión para guardar");
     return;
   }
 
-  const previous =
-    items.find(
-      x=>x.id===id
-    );
+  const id=els.editId?.value||"";
+  const data={
+    name:(els.itemName?.value||"").trim(),
+    category:els.category?.value||"Otros",
+    priority:els.priority?.value||"Media",
+    description:(els.description?.value||"").trim(),
+    qty:Math.max(1,nint(els.qty?.value,1)),
+    suggestedBy:(els.suggestedBy?.value||"").trim()
+  };
 
-  items =
-    items.filter(
-      x=>x.id!==id
-    );
-
-  cacheLocal();
-  render();
-
-  const ok =
-    await deleteCloudItem(id);
-
-  if(!ok && previous){
-    items.unshift(previous);
-    cacheLocal();
-    render();
+  if(!data.name){
+    showToast("Escribe qué quieres sugerir");
+    els.itemName?.focus();
+    return;
   }
 
+  let item;
+  if(id){
+    const current=items.find(x=>x.id===id);
+    if(!current)return;
+    item=normalizeItem({...current,...data,updatedAt:Date.now()},id);
+  }else{
+    item=normalizeItem({
+      id:uid(),
+      ...data,
+      ownedQty:0,
+      reservations:[],
+      createdAt:Date.now(),
+      updatedAt:Date.now()
+    });
+  }
+
+  const submit=els.itemForm.querySelector('button[type="submit"]');
+  if(submit)submit.disabled=true;
+
+  const ok=await putCloudItem(item);
+
+  if(submit)submit.disabled=false;
+
+  if(ok){
+    const idx=items.findIndex(x=>x.id===item.id);
+    if(idx>=0)items[idx]=item;else items.unshift(item);
+    cacheLocal();
+    render();
+    if(els.itemDialog?.open)els.itemDialog.close();
+    showToast(id?"Cambios guardados ✓":"Agregado a la lista 💛");
+  }
+});
+
+function editItem(id){
+  if(!cloudReady){
+    showToast("Necesitas conexión para editar");
+    return;
+  }
+  const i=items.find(x=>x.id===id);
+  if(!i)return;
+
+  if(els.modalTitle)els.modalTitle.textContent="Editar";
+  if(els.editId)els.editId.value=i.id;
+  if(els.itemName)els.itemName.value=i.name;
+  if(els.category)els.category.value=i.category;
+  if(els.priority)els.priority.value=i.priority;
+  if(els.description)els.description.value=i.description||"";
+  if(els.qty)els.qty.value=i.qty;
+  if(els.suggestedBy)els.suggestedBy.value=i.suggestedBy||"";
+
+  els.itemDialog?.showModal();
+}
+
+function reserve(id){
+  if(!cloudReady){
+    showToast("Necesitas conexión para reservar");
+    return;
+  }
+
+  const i=items.find(x=>x.id===id);
+  if(!i)return;
+
+  const missing=missingQty(i);
+  if(missing<=0){
+    showToast("Este artículo ya está cubierto");
+    return;
+  }
+
+  if(els.reserveId)els.reserveId.value=id;
+  if(els.reservedBy)els.reservedBy.value="";
+  if(els.reserveQty){
+    els.reserveQty.value=1;
+    els.reserveQty.max=missing;
+  }
+  if(els.reserveHint){
+    els.reserveHint.textContent=`Todavía faltan ${missing} de ${i.qty}. Puedes reservar entre 1 y ${missing}.`;
+  }
+
+  els.reserveDialog?.showModal();
+  setTimeout(()=>els.reservedBy?.focus(),60);
+}
+
+els.reserveForm?.addEventListener("submit",async e=>{
+  e.preventDefault();
+
+  const id=els.reserveId?.value||"";
+  const who=(els.reservedBy?.value||"").trim();
+  const requested=Math.max(1,nint(els.reserveQty?.value,1));
+
+  if(!who){
+    showToast("Escribe tu nombre");
+    els.reservedBy?.focus();
+    return;
+  }
+
+  if(els.reserveSubmit)els.reserveSubmit.disabled=true;
+  if(els.reserveHint)els.reserveHint.textContent="Comprobando disponibilidad…";
+
+  try{
+    const result=await atomicUpdateItem(id,current=>{
+      const available=missingQty(current);
+
+      if(available<=0){
+        if(els.reserveHint)els.reserveHint.textContent="Ups, alguien acaba de cubrir lo que faltaba 💛";
+        return null;
+      }
+
+      if(requested>available){
+        if(els.reserveQty){
+          els.reserveQty.max=available;
+          els.reserveQty.value=available;
+        }
+        if(els.reserveHint)els.reserveHint.textContent=`Mientras elegías, cambió la lista. Ahora solo faltan ${available}.`;
+        return null;
+      }
+
+      current.reservations=current.reservations||[];
+      current.reservations.push({
+        id:uid(),
+        name:who,
+        qty:requested,
+        createdAt:Date.now()
+      });
+
+      return current;
+    });
+
+    if(result.ok){
+      if(els.reserveDialog?.open)els.reserveDialog.close();
+      showToast(`${who} reservó ${requested} ${requested===1?"unidad":"unidades"} 💛`);
+    }else{
+      await loadCloudItems({silent:true});
+    }
+  }catch(err){
+    console.warn(err);
+    if(err.message==="conflict"){
+      if(els.reserveHint)els.reserveHint.textContent="Hubo varios cambios al mismo tiempo. Intenta nuevamente.";
+    }else{
+      if(els.reserveDialog?.open)els.reserveDialog.close();
+      showToast("No se pudo completar la reserva");
+      await loadCloudItems({silent:true});
+    }
+  }finally{
+    if(els.reserveSubmit)els.reserveSubmit.disabled=false;
+  }
+});
+
+async function cancelReservation(itemId,reservationId){
+  if(!cloudReady)return;
+
+  try{
+    const result=await atomicUpdateItem(itemId,current=>{
+      current.reservations=(current.reservations||[]).filter(r=>r.id!==reservationId);
+      return current;
+    });
+    if(result.ok)showToast("Reserva liberada");
+  }catch(e){
+    showToast("No se pudo liberar la reserva");
+    await loadCloudItems({silent:true});
+  }
+}
+
+function openReceive(id){
+  if(!cloudReady){
+    showToast("Necesitas conexión para registrar llegada");
+    return;
+  }
+
+  const i=items.find(x=>x.id===id);
+  if(!i)return;
+
+  const remainingToOwn=Math.max(0,i.qty-nint(i.ownedQty,0));
+  if(remainingToOwn<=0){
+    showToast("Ya tenemos la cantidad necesaria");
+    return;
+  }
+
+  if(els.receiveId)els.receiveId.value=id;
+  if(els.receiveQty){
+    els.receiveQty.value=1;
+    els.receiveQty.max=remainingToOwn;
+  }
+  if(els.receiveHint){
+    els.receiveHint.textContent=`Tenemos ${i.ownedQty||0} de ${i.qty}. Puedes registrar entre 1 y ${remainingToOwn}.`;
+  }
+
+  els.receiveDialog?.showModal();
+}
+
+function consumeReservations(reservations,amount){
+  let left=amount;
+  const next=[];
+
+  for(const r of reservations||[]){
+    if(left<=0){
+      next.push(r);
+      continue;
+    }
+
+    const take=Math.min(r.qty,left);
+    const remain=r.qty-take;
+    left-=take;
+
+    if(remain>0)next.push({...r,qty:remain});
+  }
+
+  return next;
+}
+
+els.receiveForm?.addEventListener("submit",async e=>{
+  e.preventDefault();
+
+  const id=els.receiveId?.value||"";
+  const requested=Math.max(1,nint(els.receiveQty?.value,1));
+
+  if(els.receiveSubmit)els.receiveSubmit.disabled=true;
+  if(els.receiveHint)els.receiveHint.textContent="Actualizando…";
+
+  try{
+    const result=await atomicUpdateItem(id,current=>{
+      const room=Math.max(0,current.qty-nint(current.ownedQty,0));
+
+      if(room<=0){
+        if(els.receiveHint)els.receiveHint.textContent="La meta ya está completa.";
+        return null;
+      }
+
+      const amount=Math.min(requested,room);
+      current.ownedQty=nint(current.ownedQty,0)+amount;
+      current.reservations=consumeReservations(current.reservations,amount);
+      return current;
+    });
+
+    if(result.ok){
+      if(els.receiveDialog?.open)els.receiveDialog.close();
+      const amount=Math.min(requested,result.item.qty);
+      showToast(`Registramos ${amount} ${amount===1?"unidad":"unidades"} ✓`);
+    }
+  }catch(e){
+    if(els.receiveDialog?.open)els.receiveDialog.close();
+    showToast("No se pudo registrar la llegada");
+    await loadCloudItems({silent:true});
+  }finally{
+    if(els.receiveSubmit)els.receiveSubmit.disabled=false;
+  }
+});
+
+async function removeItem(id){
+  if(!cloudReady){
+    showToast("Necesitas conexión para eliminar");
+    return;
+  }
+
+  if(!confirm("¿Eliminar esto de la lista?"))return;
+
+  const ok=await deleteCloudItem(id);
+  if(ok){
+    items=items.filter(x=>x.id!==id);
+    cacheLocal();
+    render();
+    showToast("Eliminado");
+  }
 }
 
 function showToast(msg){
-
-  toast.textContent =
-    msg;
-
-
-  toast
-    .classList
-    .add(
-      "show"
-    );
-
-
-  setTimeout(
-    ()=>{
-
-      toast
-        .classList
-        .remove(
-          "show"
-        );
-
-    },
-    1800
-  );
-
+  if(!els.toast)return;
+  els.toast.textContent=msg;
+  els.toast.classList.add("show");
+  clearTimeout(els.toast._timer);
+  els.toast._timer=setTimeout(()=>els.toast.classList.remove("show"),2200);
 }
 
-
 function renderFilterOptions(){
-
-  const statuses = [
-    {
-      value:"all",
-      label:"Todos"
-    },
-    {
-      value:"pending",
-      label:"Todavía falta"
-    },
-    {
-      value:"reserved",
-      label:"Alguien se encarga"
-    },
-    {
-      value:"bought",
-      label:"Ya llegó"
-    }
+  const statuses=[
+    {value:"all",label:"Todos"},
+    {value:"pending",label:"Todavía falta"},
+    {value:"reserved",label:"Alguien se encarga"},
+    {value:"bought",label:"Ya llegó"}
+  ];
+  const priorities=[
+    {value:"all",label:"Todas"},
+    {value:"Alta",label:"Alta"},
+    {value:"Media",label:"Media"},
+    {value:"Baja",label:"Baja"}
   ];
 
-  const priorities = [
-    {
-      value:"all",
-      label:"Todas"
-    },
-    {
-      value:"Alta",
-      label:"Alta"
-    },
-    {
-      value:"Media",
-      label:"Media"
-    },
-    {
-      value:"Baja",
-      label:"Baja"
-    }
-  ];
-
-  statusOptions.innerHTML =
-    statuses
-    .map(x=>`
-      <button
-        type="button"
-        class="filter-option ${
-          tempStatus===x.value
-          ? "active"
-          : ""
-        }"
-        onclick="setTempStatus('${x.value}')"
-      >
+  if(els.statusOptions){
+    els.statusOptions.innerHTML=statuses.map(x=>`
+      <button type="button" class="filter-option ${tempStatus===x.value?"active":""}"
+        onclick="setTempStatus('${x.value}')" aria-pressed="${tempStatus===x.value}">
         ${x.label}
-      </button>
-    `)
-    .join("");
+      </button>`).join("");
+  }
 
-  priorityOptions.innerHTML =
-    priorities
-    .map(x=>`
-      <button
-        type="button"
-        class="filter-option ${
-          tempPriority===x.value
-          ? "active"
-          : ""
-        }"
-        onclick="setTempPriority('${x.value}')"
-      >
+  if(els.priorityOptions){
+    els.priorityOptions.innerHTML=priorities.map(x=>`
+      <button type="button" class="filter-option ${tempPriority===x.value?"active":""}"
+        onclick="setTempPriority('${x.value}')" aria-pressed="${tempPriority===x.value}">
         ${x.label}
-      </button>
-    `)
-    .join("");
-
+      </button>`).join("");
+  }
 }
 
 function openFilters(){
-
-  tempStatus =
-    activeStatus;
-
-  tempPriority =
-    activePriority;
-
+  tempStatus=activeStatus;
+  tempPriority=activePriority;
   renderFilterOptions();
-
-  filterDialog.showModal();
-
+  els.filterDialog?.showModal();
 }
-
-function setTempStatus(value){
-
-  tempStatus =
-    value;
-
-  renderFilterOptions();
-
-}
-
-function setTempPriority(value){
-
-  tempPriority =
-    value;
-
-  renderFilterOptions();
-
-}
-
+function setTempStatus(v){tempStatus=v;renderFilterOptions();}
+function setTempPriority(v){tempPriority=v;renderFilterOptions();}
 function applyFilters(){
-
-  activeStatus =
-    tempStatus;
-
-  activePriority =
-    tempPriority;
-
-  filterDialog.close();
-
+  activeStatus=tempStatus;
+  activePriority=tempPriority;
+  if(els.filterDialog?.open)els.filterDialog.close();
   render();
-
 }
-
 function clearFilters(){
-
-  tempStatus =
-    "all";
-
-  tempPriority =
-    "all";
-
-  activeStatus =
-    "all";
-
-  activePriority =
-    "all";
-
-  filterDialog.close();
-
+  tempStatus="all";
+  tempPriority="all";
+  activeStatus="all";
+  activePriority="all";
+  if(els.filterDialog?.open)els.filterDialog.close();
   render();
-
 }
 
+function focusSearch(){
+  els.searchInput?.scrollIntoView({behavior:"smooth",block:"center"});
+  setTimeout(()=>els.searchInput?.focus(),350);
+}
 
-async function copySummary(){
+function goCategories(){
+  els.categoryTabs?.scrollIntoView({behavior:"smooth",block:"center"});
+}
 
-  const pending =
-    items.filter(
-      i=>
-        i.status===
-        "pending"
-    );
+async function shareSummary(){
+  const missing=items.filter(i=>missingQty(i)>0);
+  const reserved=items.filter(i=>totalReserved(i)>0);
 
+  const text=`Lista de Amelia 💛
 
-  const reserved =
-    items.filter(
-      i=>
-        i.status===
-        "reserved"
-    );
-
-
-  const text = `Lista de Amelia 💛
-
-Todavía faltan ${pending.length} cosas.
-${reserved.length} ya tienen quién se encargue.
+Todavía faltan ${missing.reduce((s,i)=>s+missingQty(i),0)} unidades en ${missing.length} artículos.
 
 FALTA:
-${
-  pending
-  .map(
-    i=>
-      `• ${i.name} (${i.priority})`
-  )
-  .join("\n")
-  ||
-  "—"
-}
+${missing.map(i=>`• ${i.name}: faltan ${missingQty(i)} de ${i.qty}`).join("\n")||"—"}
 
-YA TIENEN QUIÉN:
-${
-  reserved
-  .map(
-    i=>
-      `• ${i.name}${
-        i.reservedBy
-        ? ` — ${i.reservedBy}`
-        : ""
-      }`
-  )
-  .join("\n")
-  ||
-  "—"
-}`;
+YA HAY RESERVAS:
+${reserved.map(i=>`• ${i.name}: ${(i.reservations||[]).map(r=>`${r.name} (${r.qty})`).join(", ")}`).join("\n")||"—"}`;
 
-
-  try{
-
-    await navigator
-      .clipboard
-      .writeText(text);
-
-
-    showToast(
-      "Resumen copiado"
-    );
-
-  }catch{
-
-    alert(text);
-
-  }
-
-}
-
-
-async function initAmelia(){
-
-  render();
-
-  await loadCloudItems({
-    seedIfEmpty:true,
-    silent:true
-  });
-
-  syncTimer =
-    setInterval(
-      ()=>{
-        if(
-          document.visibilityState===
-          "visible"
-        ){
-          loadCloudItems({
-            silent:true
-          });
-        }
-      },
-      2500
-    );
-
-}
-
-window.addEventListener(
-  "focus",
-  ()=>{
-    loadCloudItems({
-      silent:true
-    });
-  }
-);
-
-document.addEventListener(
-  "visibilitychange",
-  ()=>{
-    if(
-      document.visibilityState===
-      "visible"
-    ){
-      loadCloudItems({
-        silent:true
-      });
+  if(navigator.share){
+    try{
+      await navigator.share({title:"Lista de Amelia",text,url:location.href});
+      return;
+    }catch(e){
+      if(e?.name==="AbortError")return;
     }
   }
-);
+
+  try{
+    await navigator.clipboard.writeText(text+"\n\n"+location.href);
+    showToast("Resumen copiado para compartir");
+  }catch{
+    alert(text);
+  }
+}
+
+async function copySummary(){
+  return shareSummary();
+}
+
+async function initAmelia(){
+  render();
+  setSyncState(false,"Conectando con la lista compartida…","connecting");
+
+  await loadCloudItems({seedIfEmpty:true,silent:true});
+
+  syncTimer=setInterval(()=>{
+    if(document.visibilityState==="visible" && !document.querySelector("dialog[open]")){
+      loadCloudItems({silent:true});
+    }
+  },10000);
+}
+
+window.addEventListener("focus",()=>{
+  if(!document.querySelector("dialog[open]")){
+    loadCloudItems({silent:true});
+  }
+});
+
+document.addEventListener("visibilitychange",()=>{
+  if(document.visibilityState==="visible" && !document.querySelector("dialog[open]")){
+    loadCloudItems({silent:true});
+  }
+});
+
+window.addEventListener("unhandledrejection",event=>{
+  console.error("Amelia · promesa no controlada",event.reason);
+});
+
+window.addEventListener("error",event=>{
+  console.error("Amelia · error",event.error||event.message);
+});
 
 initAmelia();
-
 </script>
 
 </body>
