@@ -1737,6 +1737,20 @@ button:disabled{
   .quantity-progress-top{align-items:flex-start}
 }
 
+
+.item.just-completed{
+  animation:completedPulse 1.8s ease both;
+  box-shadow:0 0 0 4px rgba(169,220,192,.42),0 12px 32px rgba(74,112,83,.10);
+}
+@keyframes completedPulse{
+  0%{transform:scale(.985);background:#eef8f1}
+  35%{transform:scale(1.01);background:#e4f5e9}
+  100%{transform:scale(1);background:var(--paper)}
+}
+@media(prefers-reduced-motion:reduce){
+  .item.just-completed{animation:none;box-shadow:0 0 0 4px rgba(169,220,192,.42)}
+}
+
 </style>
 </head>
 
@@ -1833,6 +1847,16 @@ button:disabled{
           <small>Panorama completo</small>
           <strong>Ver todo</strong>
           <span id="dashAllText">Toda la lista</span>
+        </span>
+        <span class="decision-arrow">→</span>
+      </button>
+
+      <button class="decision-card" type="button" onclick="setSmartFilter('owned')" data-smart-card="owned">
+        <span class="decision-icon">✓</span>
+        <span class="decision-card-copy">
+          <small>Lo que ya está listo</small>
+          <strong>Ya lo tenemos</strong>
+          <span id="dashOwnedText">Ver artículos completos</span>
         </span>
         <span class="decision-arrow">→</span>
       </button>
@@ -2449,7 +2473,8 @@ const els = {
 
   dashMissingText: document.getElementById("dashMissingText"),
   dashAlmostText: document.getElementById("dashAlmostText"),
-  dashAllText: document.getElementById("dashAllText")
+  dashAllText: document.getElementById("dashAllText"),
+  dashOwnedText: document.getElementById("dashOwnedText")
 };
 
 let items = [];
@@ -2471,6 +2496,7 @@ let cloudReady = false;
 let cloudState = "connecting";
 let syncTimer = null;
 let currentView = storageGet(VIEW_KEY) || "cards";
+let justCompletedId = null;
 
 const VIEW_META = {
   cards:{label:"Tarjetas",icon:"▦"},
@@ -2810,7 +2836,7 @@ function itemHTML(i){
   const missing=missingQty(i);
 
   return `
-    <article class="item ${st.cls==="bought"?"done":""}" style="--cat-color:${cat.color}">
+    <article id="item-${i.id}" class="item ${st.cls==="bought"?"done":""} ${justCompletedId===i.id?"just-completed":""}" style="--cat-color:${cat.color}">
       <div class="item-top">
         <div>
           <div class="category-label">${cat.icon} ${esc(i.category)}</div>
@@ -2879,6 +2905,7 @@ function setCategory(c){
 function smartPass(i){
   if(activeSmartFilter==="missing")return missingQty(i)>0;
   if(activeSmartFilter==="almost")return isAlmost(i);
+  if(activeSmartFilter==="owned")return derivedState(i)==="bought";
   return true;
 }
 
@@ -2902,6 +2929,9 @@ function renderActiveFilters(){
   }
   if(activeSmartFilter==="almost"){
     chips.push(`<span class="active-filter-chip">Casi llegamos <button type="button" onclick="clearSmartFilter()" aria-label="Quitar filtro casi llegamos">×</button></span>`);
+  }
+  if(activeSmartFilter==="owned"){
+    chips.push(`<span class="active-filter-chip">Ya lo tenemos <button type="button" onclick="clearSmartFilter()" aria-label="Quitar filtro ya lo tenemos">×</button></span>`);
   }
   if(activeStatus!=="all"){
     const label={pending:"Todavía falta",reserved:"Alguien se encarga",bought:"Ya llegó"}[activeStatus]||activeStatus;
@@ -2936,6 +2966,13 @@ function renderDashboard(){
 
   if(els.dashAllText){
     els.dashAllText.textContent=`${items.length} ${items.length===1?"artículo":"artículos"} en la lista`;
+  }
+
+  const ownedItems=items.filter(i=>derivedState(i)==="bought");
+  if(els.dashOwnedText){
+    els.dashOwnedText.textContent=ownedItems.length
+      ? `${ownedItems.length} ${ownedItems.length===1?"artículo completo":"artículos completos"}`
+      : "Todavía no hay artículos completos";
   }
 
   document.querySelectorAll("[data-smart-card]").forEach(btn=>{
@@ -3300,7 +3337,35 @@ els.receiveForm?.addEventListener("submit",async e=>{
     if(result.ok){
       if(els.receiveDialog?.open)els.receiveDialog.close();
       const amount=Math.min(requested,result.item.qty);
-      showToast(`Registramos ${amount} ${amount===1?"unidad":"unidades"} ✓`);
+
+      if(derivedState(result.item)==="bought"){
+        justCompletedId=result.item.id;
+
+        if(activeSmartFilter==="missing" || activeSmartFilter==="almost"){
+          activeSmartFilter="all";
+        }
+        if(activeStatus==="pending" || activeStatus==="reserved"){
+          activeStatus="all";
+        }
+
+        render();
+
+        setTimeout(()=>{
+          const el=document.getElementById("item-"+result.item.id);
+          el?.scrollIntoView({behavior:"smooth",block:"center"});
+        },80);
+
+        setTimeout(()=>{
+          if(justCompletedId===result.item.id){
+            justCompletedId=null;
+            render();
+          }
+        },2200);
+
+        showToast("¡Completo! Ahora está en “Ya lo tenemos” ✓");
+      }else{
+        showToast(`Registramos ${amount} ${amount===1?"unidad":"unidades"} ✓`);
+      }
     }
   }catch(e){
     if(els.receiveDialog?.open)els.receiveDialog.close();
